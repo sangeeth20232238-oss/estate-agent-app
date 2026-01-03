@@ -13,7 +13,7 @@ const PropertyDetails = () => {
 
     useEffect(() => {
         // Load the data file
-        fetch('/estate-agent-app/properties.json')
+        fetch(`${import.meta.env.BASE_URL}properties.json`)
             .then(res => res.json())
             .then(data => {
                 // Find the specific property that matches the ID

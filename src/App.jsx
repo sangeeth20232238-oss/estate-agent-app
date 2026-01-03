@@ -18,7 +18,7 @@ function App() {
 
   // Load the data when the app starts
   useEffect(() => {
-    fetch('/estate-agent-app/properties.json')
+    fetch(`${import.meta.env.BASE_URL}properties.json`)
       .then(res => res.json())
       .then(data => {
         // Save data to both states so we have a backup of the full list
