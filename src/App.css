@@ -1,0 +1,464 @@
+/* --- GLOBAL RESETS --- */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f2f2f2;
+	/* Light Rightmove-style grey */
+	font-family: 'Effra', 'Arial', sans-serif;
+	/* Clean font */
+	color: #262637;
+}
+
+#root {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+/* --- HEADER & SEARCH --- */
+.App {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.search-container {
+	background-color: #262637;
+	/* Rightmove Dark Blue/Black header */
+	padding: 25px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	color: white;
+}
+
+.search-container h1 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-size: 1.8rem;
+}
+
+.search-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	align-items: flex-end;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.form-group label {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: #aeb0b8;
+	/* Light text for labels on dark bg */
+}
+
+/* Inputs styling */
+input,
+select,
+.date-input {
+	padding: 10px 15px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 1rem;
+	min-width: 140px;
+}
+
+button[type="submit"] {
+	background-color: #00d775;
+	/* Rightmove-ish Green highlight */
+	color: #000;
+	font-weight: bold;
+	border: none;
+	padding: 12px 30px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+	background-color: #00b060;
+}
+
+/* --- LAYOUT --- */
+.main-layout {
+	display: flex;
+	gap: 30px;
+	align-items: flex-start;
+}
+
+.results-column {
+	flex: 3;
+}
+
+.favourites-column {
+	flex: 1;
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	position: sticky;
+	top: 20px;
+	min-width: 300px;
+}
+
+/* --- GALLERY GRID --- */
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 25px;
+}
+
+/* --- PROPERTY CARD (The Professional Look) --- */
+.card {
+	background: white;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s, box-shadow 0.2s;
+	display: flex;
+	flex-direction: column;
+}
+
+.card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+	position: relative;
+	height: 200px;
+	overflow: hidden;
+}
+
+.card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.5s;
+}
+
+.card:hover img {
+	transform: scale(1.05);
+	/* Subtle zoom effect */
+}
+
+.card-badge {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background: #00d775;
+	color: #000;
+	padding: 4px 8px;
+	font-size: 0.8rem;
+	font-weight: bold;
+	border-radius: 4px;
+}
+
+.description {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.card-price {
+	margin: 0;
+	font-size: 1.5rem;
+	color: #262637;
+	font-weight: 700;
+}
+
+.card-title {
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: 400;
+	color: #262637;
+}
+
+.card-location {
+	margin: 0;
+	color: #666;
+	font-size: 0.95rem;
+	margin-bottom: 10px;
+}
+
+.add-fav-btn {
+	background-color: white;
+	border: 1px solid #262637;
+	color: #262637;
+	padding: 8px;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s;
+	margin-top: auto;
+	/* Pushes button to bottom */
+}
+
+.add-fav-btn:hover {
+	background-color: #f2f2f2;
+}
+
+/* --- FAVOURITES PANEL --- */
+.favourites-panel h2 {
+	font-size: 1.2rem;
+	margin-top: 0;
+	border-bottom: 2px solid #f2f2f2;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.empty-fav-zone {
+	border: 2px dashed #ccc;
+	padding: 30px;
+	text-align: center;
+	color: #999;
+	border-radius: 8px;
+}
+
+.fav-item {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.fav-item img {
+	width: 60px;
+	height: 60px;
+	border-radius: 4px;
+	object-fit: cover;
+}
+
+.fav-info h4 {
+	margin: 0;
+	font-size: 0.9rem;
+}
+
+.fav-info p {
+	margin: 0;
+	font-weight: bold;
+	color: #262637;
+}
+
+.clear-btn {
+	font-size: 0.8rem;
+	background: transparent;
+	color: #dc3545;
+	border: 1px solid #dc3545;
+}
+
+.clear-btn:hover {
+	background: #dc3545;
+	color: white;
+}
+
+/* --- PROPERTY DETAILS PAGE --- */
+.property-details-container {
+	max-width: 1000px;
+	margin: 0 auto;
+	background: white;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.price-tag {
+	color: #262637;
+	font-size: 2rem;
+	font-weight: 800;
+}
+
+.active.thumb {
+	border: 3px solid #00d775;
+}
+
+
+/*after box style */
+
+/* --- DATE PICKER FIXES --- */
+
+/* 1. Force the wrapper to be a stable block, not a jumpy inline element */
+.react-datepicker-wrapper {
+	display: block !important;
+	width: 100%;
+}
+
+/* 2. Ensure the internal container fills that block */
+.react-datepicker__input-container {
+	display: block;
+}
+
+/* 3. Style the actual input inside to match your other inputs height/width */
+.react-datepicker__input-container input {
+	width: 100%;
+	padding: 10px 15px;
+	/* Match standard input padding */
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 1rem;
+	height: 42px;
+	/* Force a fixed height so it can't shrink/jump */
+}
+
+/* 4. Lock the group layout */
+.date-group {
+	display: flex;
+	gap: 10px;
+	width: 100%;
+	/* Ensure it fills the space */
+	align-items: center;
+	/* Force vertical center alignment */
+}
+
+/* OPTIONAL: Fix the calendar z-index so it floats ON TOP of everything */
+.react-datepicker-popper {
+	z-index: 999 !important;
+	/* Ensures calendar doesn't get hidden behind cards */
+}
+
+
+/* --- FIX FOR GIANT IMAGES --- */
+
+/* 1. Constrain the container */
+.property-details-container {
+	max-width: 1100px;
+	/* Limits the total width of the white box */
+	margin: 20px auto;
+	/* Centers it on screen */
+	background: white;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	/* Crucial: cuts off anything sticking out */
+}
+
+/* 2. Force the Grid Layout */
+.details-grid {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	/* Left side bigger than right side */
+	gap: 30px;
+	align-items: start;
+	/* Aligns them to the top */
+}
+
+/* 3. TAME THE IMAGE (The most important part) */
+.main-image-frame {
+	width: 100%;
+	/* Fill the container, don't exceed it */
+	height: 400px;
+	/* Fixed height for consistency */
+	overflow: hidden;
+	border-radius: 8px;
+	background-color: #eee;
+	/* Grey placeholder while loading */
+}
+
+.main-image-frame img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* "Zoom and Crop" to fit the box perfectly */
+	display: block;
+}
+
+/* 4. Responsive Fix (For smaller screens) */
+@media (max-width: 768px) {
+	.details-grid {
+		grid-template-columns: 1fr;
+		/* Stack them on mobile */
+	}
+
+	.main-image-frame {
+		height: 250px;
+		/* Smaller image on mobile */
+	}
+}
+
+
+
+
+/* --- FIX FOR PROPERTY DETAILS EXPLOSION --- */
+
+/* 1. Reset the Grid Layout for the page */
+.details-grid {
+    display: grid;
+    grid-template-columns: 60% 40%; /* Left side bigger */
+    gap: 40px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+/* 2. Constrain the Gallery Section */
+.gallery-section {
+    width: 100%;
+    overflow: hidden; /* Cut off anything that tries to spill out */
+}
+
+/* 3. Fix the Main Image */
+.main-image-frame {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.main-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 4. FIX THE THUMBNAILS (The most important part!) */
+.thumbnail-row {
+    display: flex; /* Line them up in a row, not a column */
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto; /* Allow scrolling if there are many */
+    padding-bottom: 5px;
+}
+
+/* Force every thumbnail image to be small */
+.thumb {
+    width: 100px !important;  /* Force width */
+    height: 70px !important;  /* Force height */
+    object-fit: cover;        /* Crop nicely */
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s;
+    flex-shrink: 0;           /* Prevent them from squishing */
+    display: block;
+}
+
+/* Hover effects */
+.thumb:hover, .thumb.active {
+    opacity: 1;
+    border: 3px solid #00d775; /* Green border for active item */
+    transform: scale(1.05);
+}
+
+/* 5. Mobile Fix */
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr; /* Stack vertically on phone */
+    }
+    .main-image-frame {
+        height: 250px;
+    }
+}
