@@ -11,8 +11,8 @@ const SearchBar = ({ onSearch }) => {
         minBedrooms: 0,
         maxBedrooms: 10,
         postcode: '',
-        dateAfter: null,   // New: For "Added After"
-        dateBefore: null   // New: For "Added Before"
+        dateAfter: null,   // For "Added After"
+        dateBefore: null   // For "Added Before"
     });
 
     // Update state for standard inputs

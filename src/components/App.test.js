@@ -59,7 +59,6 @@ test('renders the property grid area', () => {
   renderApp();
   // Initially, it might show 0 or 7 properties depending on fetch speed.
   // We check if the container for properties exists by looking for the heading or structure.
-  // (Assuming your Gallery shows a heading like "Properties Found")
   const galleryText = screen.getByText(/Properties Found/i);
   expect(galleryText).toBeInTheDocument();
 });
