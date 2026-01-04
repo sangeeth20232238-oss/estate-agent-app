@@ -7,7 +7,11 @@
       "location": "Petts Wood Road, Petts Wood, Orpington BR5",
       "tenure": "Freehold",
       "bedrooms": 5,
-      "added": { "month": "October", "day": 12, "year": 2022 },
+      "added": {
+        "month": "October",
+        "day": 12,
+        "year": 2025
+      },
       "picture": "images/prop1pic1small.jpg",
       "images": [
         "images/prop1_2.jpg",
@@ -26,7 +30,11 @@
       "location": "Crofton Road Orpington BR6",
       "tenure": "Leasehold",
       "bedrooms": 2,
-      "added": { "month": "September", "day": 14, "year": 2022 },
+      "added": {
+        "month": "September",
+        "day": 14,
+        "year": 2025
+      },
       "picture": "images/prop2pic1small.jpg",
       "images": [
         "images/prop2_2.jpg",
@@ -45,7 +53,11 @@
       "location": "High Street, Bromley BR1",
       "tenure": "Freehold",
       "bedrooms": 3,
-      "added": { "month": "November", "day": 2, "year": 2022 },
+      "added": {
+        "month": "November",
+        "day": 2,
+        "year": 2025
+      },
       "picture": "images/prop3pic1small.jpg",
       "images": [
         "images/prop3_2.jpg",
@@ -64,7 +76,11 @@
       "location": "Camden Road, London NW1",
       "tenure": "Leasehold",
       "bedrooms": 1,
-      "added": { "month": "December", "day": 10, "year": 2022 },
+      "added": {
+        "month": "December",
+        "day": 10,
+        "year": 2025
+      },
       "picture": "images/prop4pic1small.jpg",
       "images": [
         "images/prop4_2.jpg",
@@ -83,7 +99,11 @@
       "location": "Manor Road, Beckenham BR3",
       "tenure": "Freehold",
       "bedrooms": 2,
-      "added": { "month": "October", "day": 30, "year": 2022 },
+      "added": {
+        "month": "October",
+        "day": 30,
+        "year": 2025
+      },
       "picture": "images/prop5pic1small.jpg",
       "images": [
         "images/prop5_2.jpg",
@@ -102,7 +122,11 @@
       "location": "Dulwich Village, London SE21",
       "tenure": "Freehold",
       "bedrooms": 4,
-      "added": { "month": "January", "day": 15, "year": 2023 },
+      "added": {
+        "month": "January",
+        "day": 15,
+        "year": 2024
+      },
       "picture": "images/prop6pic1small.jpg",
       "images": [
         "images/prop6_2.jpg",
@@ -121,7 +145,11 @@
       "location": "Station Road, Sidcup DA15",
       "tenure": "Leasehold",
       "bedrooms": 2,
-      "added": { "month": "November", "day": 15, "year": 2022 },
+      "added": {
+        "month": "November",
+        "day": 15,
+        "year": 2025
+      },
       "picture": "images/prop7pic1small.jpg",
       "images": [
         "images/prop7_2.jpg",
