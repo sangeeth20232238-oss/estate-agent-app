@@ -7,12 +7,13 @@ import Gallery from './components/Gallery';
 import Favourites from './components/Favourites';
 import PropertyDetails from './components/PropertyDetails';
 import './App.css';
+import { propertyData } from './data';
 
 function App() {
   // State to hold all properties from the JSON file
-  const [allProperties, setAllProperties] = useState([]); 
+  const [allProperties, setAllProperties] = useState(propertyData.properties);
   // State to hold only the properties that match the search (initially shows all)
-  const [filteredProperties, setFilteredProperties] = useState([]); 
+  const [filteredProperties, setFilteredProperties] = useState(propertyData.properties);
   // State to store the user's favourite properties
   const [favourites, setFavourites] = useState([]); 
 

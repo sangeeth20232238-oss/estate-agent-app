@@ -1,0 +1,167 @@
+export const propertyData =
+{
+    "properties": [
+        {
+            "id": "prop1",
+            "type": "House",
+            "price": 750000,
+            "location": "Petts Wood Road, Petts Wood, Orpington BR5",
+            "tenure": "Freehold",
+            "bedrooms": 5,
+            "added": {
+                "month": "October",
+                "day": 12,
+                "year": 2025
+            },
+            "picture": "images/prop1pic1small.jpg",
+            "images": [
+                "images/prop1_2.jpg",
+                "images/prop1_3.jpg",
+                "images/prop1_4.jpg",
+                "images/prop1_5.jpg",
+                "images/prop1_6.jpg"
+            ],
+            "description": "A stunning 5-bedroom detached family home located in the heart of Petts Wood. Features a large garden and modern interior.",
+            "postcode": "BR5"
+        },
+        {
+            "id": "prop2",
+            "type": "Flat",
+            "price": 399995,
+            "location": "Crofton Road Orpington BR6",
+            "tenure": "Leasehold",
+            "bedrooms": 2,
+            "added": {
+                "month": "September",
+                "day": 14,
+                "year": 2025
+            },
+            "picture": "images/prop2pic1small.jpg",
+            "images": [
+                "images/prop2_2.jpg",
+                "images/prop2_3.jpg",
+                "images/prop2_4.jpg",
+                "images/prop2_5.jpg",
+                "images/prop2_6.jpg"
+            ],
+            "description": "Modern 2-bedroom flat situated near Orpington station. Perfect for commuters.",
+            "postcode": "BR6"
+        },
+        {
+            "id": "prop3",
+            "type": "House",
+            "price": 550000,
+            "location": "High Street, Bromley BR1",
+            "tenure": "Freehold",
+            "bedrooms": 3,
+            "added": {
+                "month": "November",
+                "day": 2,
+                "year": 2025
+            },
+            "picture": "images/prop3pic1small.jpg",
+            "images": [
+                "images/prop3_2.jpg",
+                "images/prop3_3.jpg",
+                "images/prop3_4.jpg",
+                "images/prop3_5.jpg",
+                "images/prop3_6.jpg"
+            ],
+            "description": "Charming 3-bedroom house on the high street. Close to shops and amenities.",
+            "postcode": "BR1"
+        },
+        {
+            "id": "prop4",
+            "type": "Flat",
+            "price": 250000,
+            "location": "Camden Road, London NW1",
+            "tenure": "Leasehold",
+            "bedrooms": 1,
+            "added": {
+                "month": "December",
+                "day": 10,
+                "year": 2025
+            },
+            "picture": "images/prop4pic1small.jpg",
+            "images": [
+                "images/prop4_2.jpg",
+                "images/prop4_3.jpg",
+                "images/prop4_4.jpg",
+                "images/prop4_5.jpg",
+                "images/prop4_6.jpg"
+            ],
+            "description": "Stylish 1-bedroom apartment in the vibrant Camden area. Great rental potential.",
+            "postcode": "NW1"
+        },
+        {
+            "id": "prop5",
+            "type": "Bungalow",
+            "price": 425000,
+            "location": "Manor Road, Beckenham BR3",
+            "tenure": "Freehold",
+            "bedrooms": 2,
+            "added": {
+                "month": "October",
+                "day": 30,
+                "year": 2025
+            },
+            "picture": "images/prop5pic1small.jpg",
+            "images": [
+                "images/prop5_2.jpg",
+                "images/prop5_3.jpg",
+                "images/prop5_4.jpg",
+                "images/prop5_5.jpg",
+                "images/prop5_6.jpg"
+            ],
+            "description": "Cozy 2-bedroom bungalow with a beautiful rear garden. Quiet residential area.",
+            "postcode": "BR3"
+        },
+        {
+            "id": "prop6",
+            "type": "House",
+            "price": 850000,
+            "location": "Dulwich Village, London SE21",
+            "tenure": "Freehold",
+            "bedrooms": 4,
+            "added": {
+                "month": "January",
+                "day": 15,
+                "year": 2024
+            },
+            "picture": "images/prop6pic1small.jpg",
+            "images": [
+                "images/prop6_2.jpg",
+                "images/prop6_3.jpg",
+                "images/prop6_4.jpg",
+                "images/prop6_5.jpg",
+                "images/prop6_6.jpg"
+            ],
+            "description": "Prestigious 4-bedroom family home in the sought-after Dulwich Village.",
+            "postcode": "SE21"
+        },
+        {
+            "id": "prop7",
+            "type": "Flat",
+            "price": 315000,
+            "location": "Station Road, Sidcup DA15",
+            "tenure": "Leasehold",
+            "bedrooms": 2,
+            "added": {
+                "month": "November",
+                "day": 15,
+                "year": 2025
+            },
+            "picture": "images/prop7pic1small.jpg",
+            "images": [
+                "images/prop7_2.jpg",
+                "images/prop7_3.jpg",
+                "images/prop7_4.jpg",
+                "images/prop7_5.jpg",
+                "images/prop7_6.jpg"
+            ],
+            "description": "Spacious 2-bedroom ground floor flat with allocated parking.",
+            "postcode": "DA15"
+        }
+    ]
+}
+    ;
