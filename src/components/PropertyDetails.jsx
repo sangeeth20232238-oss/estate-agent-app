@@ -12,7 +12,7 @@ const PropertyDetails = () => {
 
     // --- STATIC FLOOR PLAN PATH ---
     // This will look for "floorplan.jpg" in your public/images folder
-    const staticFloorPlan = `${import.meta.env.BASE_URL}images/floorplan.jpg`;
+    const staticFloorPlan = `${import.meta.env.BASE_URL}images/plan.jpg`;
 
     useEffect(() => {
         const found = propertyData.properties.find(p => p.id === id);
