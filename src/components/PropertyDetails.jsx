@@ -3,12 +3,16 @@ import { useParams, Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css'; 
 import { FaArrowLeft } from 'react-icons/fa';
-import { propertyData } from '../data'; // Make sure this path is correct
+import { propertyData } from '../data'; 
 
 const PropertyDetails = () => {
     const { id } = useParams(); 
     const [property, setProperty] = useState(null);
     const [mainImage, setMainImage] = useState('');
+
+    // --- STATIC FLOOR PLAN PATH ---
+    // This will look for "floorplan.jpg" in your public/images folder
+    const staticFloorPlan = `${import.meta.env.BASE_URL}images/floorplan.jpg`;
 
     useEffect(() => {
         const found = propertyData.properties.find(p => p.id === id);
@@ -23,13 +27,6 @@ const PropertyDetails = () => {
     }, [id]);
 
     if (!property) return <div className="loading">Loading Property Details...</div>;
-
-    // Helper to fix floorplan path
-    const getFloorPlanUrl = () => {
-        if (!property.floorplan) return null;
-        const cleanPlan = property.floorplan.startsWith('/') ? property.floorplan.slice(1) : property.floorplan;
-        return `${import.meta.env.BASE_URL}${cleanPlan}`;
-    };
 
     return (
         <div className="container property-details">
@@ -81,20 +78,17 @@ const PropertyDetails = () => {
                             </div>
                         </TabPanel>
 
-                        {/* TAB 2: Floor Plan (Dynamic Fix) */}
+                        {/* TAB 2: STATIC FLOOR PLAN */}
                         <TabPanel>
-                            {property.floorplan ? (
-                                <img 
-                                    src={getFloorPlanUrl()} 
-                                    alt="Floor Plan" 
-                                    className="tab-image" 
-                                />
-                            ) : (
-                                <div className="placeholder-box">No Floor Plan Image Available</div>
-                            )}
+                            <img 
+                                src={staticFloorPlan} 
+                                alt="Floor Plan" 
+                                className="tab-image"
+                                onError={(e) => {e.target.style.display='none'; alert("Make sure floorplan.jpg is in public/images folder!");}} 
+                            />
                         </TabPanel>
 
-                        {/* TAB 3: Map (Dynamic Fix) */}
+                        {/* TAB 3: Map */}
                         <TabPanel>
                             <iframe
                                 width="100%"
@@ -103,7 +97,7 @@ const PropertyDetails = () => {
                                 loading="lazy"
                                 allowFullScreen
                                 title="Property Location"
-                                src={`https://maps.google.com/maps?q=${encodeURIComponent(property.location)}&output=embed`}
+                                src={`https://maps.google.com/maps?q=${encodeURIComponent(property.location)}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
                             ></iframe>
                         </TabPanel>
                     </Tabs>
