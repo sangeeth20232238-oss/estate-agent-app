@@ -6,8 +6,11 @@ const ImageCard = ({ product, onAddFav }) => {
     // Unpack the product data so it's easier to use below
     const { type, price, location, picture, id } = product; 
     
-    // Safety check: ensure the image path always starts with a slash
-    const imagePath = picture.startsWith('/') ? picture : `/${picture}`;
+    // 1. Remove any leading slash from the data (e.g., "/images/..." becomes "images/...")
+    const cleanPath = picture.startsWith('/') ? picture.slice(1) : picture;
+    
+    // 2. Add the correct repo folder name in front
+    const imagePath = `${import.meta.env.BASE_URL}${cleanPath}`;
 
     // Setup Drag and Drop: specific config to make this card draggable
     const [{ isDragging }, drag] = useDrag(() => ({

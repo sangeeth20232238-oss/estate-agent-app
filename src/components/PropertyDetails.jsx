@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css'; 
+import 'react-tabs/style/react-tabs.css';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const PropertyDetails = () => {
     // Get the ID from the URL (e.g. /property/prop1)
-    const { id } = useParams(); 
+    const { id } = useParams();
     const [property, setProperty] = useState(null);
     // State to track which image is currently being shown big
     const [mainImage, setMainImage] = useState('');
 
     useEffect(() => {
-        // Load the data file
-        fetch(`${import.meta.env.BASE_URL}properties.json`)
-            .then(res => res.json())
-            .then(data => {
-                // Find the specific property that matches the ID
-                const found = data.properties.find(p => p.id === id);
-                if (found) {
-                    setProperty(found);
-                    // Set the default image to the first one available
-                    const initialImg = found.picture || (found.images && found.images[0]);
-                    setMainImage(initialImg.startsWith('/') ? initialImg : `/${initialImg}`);
-                }
-            });
+        const found = propertyData.properties.find(p => p.id === id);
+        if (found) {
+            setProperty(found);
+
+            // Fix the image path for the main image
+            const rawImg = found.picture || (found.images && found.images[0]);
+            const cleanRaw = rawImg.startsWith('/') ? rawImg.slice(1) : rawImg;
+            setMainImage(`${import.meta.env.BASE_URL}${cleanRaw}`);
+        }
     }, [id]); // Run this whenever the ID changes
 
     // Show a message while data is loading
@@ -48,18 +44,18 @@ const PropertyDetails = () => {
                         <img src={mainImage} alt="Main view" />
                     </div>
                     <div className="thumbnail-row">
-                        {/* Loop through all images to create small thumbnails */}
                         {property.images && property.images.map((img, index) => {
-                            const imgPath = img.startsWith('/') ? img : `/${img}`;
+                            // Fix the path for every thumbnail
+                            const cleanThumb = img.startsWith('/') ? img.slice(1) : img;
+                            const thumbPath = `${import.meta.env.BASE_URL}${cleanThumb}`;
+
                             return (
-                                <img 
+                                <img
                                     key={index}
-                                    src={imgPath} 
+                                    src={thumbPath}
                                     alt={`Thumbnail ${index}`}
-                                    // Highlight the thumbnail if it is the current main image
-                                    className={mainImage === imgPath ? "thumb active" : "thumb"}
-                                    // Change main image when clicked
-                                    onClick={() => setMainImage(imgPath)} 
+                                    className={mainImage === thumbPath ? "thumb active" : "thumb"}
+                                    onClick={() => setMainImage(thumbPath)}
                                 />
                             );
                         })}
@@ -95,7 +91,7 @@ const PropertyDetails = () => {
                             <div className="tab-content">
                                 <h3>Floor Plan</h3>
                                 <div className="placeholder-box">
-                                    <img src="/images/floorplan_placeholder.jpg" alt="Floor Plan" style={{maxWidth: '100%'}} />
+                                    <img src="/images/floorplan_placeholder.jpg" alt="Floor Plan" style={{ maxWidth: '100%' }} />
                                 </div>
                             </div>
                         </TabPanel>
@@ -105,12 +101,12 @@ const PropertyDetails = () => {
                             <div className="tab-content">
                                 <h3>Location Map</h3>
                                 {/* Embedding Google Maps based on property location */}
-                                <iframe 
+                                <iframe
                                     title="map"
-                                    width="100%" 
-                                    height="300" 
-                                    style={{border:0}} 
-                                    src={`https://maps.google.com/maps?q=${property.location}&t=&z=13&ie=UTF8&iwloc=&output=embed`} 
+                                    width="100%"
+                                    height="300"
+                                    style={{ border: 0 }}
+                                    src={`https://maps.google.com/maps?q=${property.location}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
                                     allowFullScreen
                                 ></iframe>
                             </div>
