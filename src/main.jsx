@@ -6,7 +6,7 @@ import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter> {/* WRAP APP IN ROUTER */}
+    <BrowserRouter basename="/estate-agent-app">
       <App />
     </BrowserRouter>
   </StrictMode>,
