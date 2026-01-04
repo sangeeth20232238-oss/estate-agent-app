@@ -17,17 +17,7 @@ function App() {
   // State to store the user's favourite properties
   const [favourites, setFavourites] = useState([]); 
 
-  // Load the data when the app starts
-  useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}properties.json`)
-      .then(res => res.json())
-      .then(data => {
-        // Save data to both states so we have a backup of the full list
-        setAllProperties(data.properties);
-        setFilteredProperties(data.properties);
-      })
-      .catch(err => console.error("Error loading data:", err));
-  }, []);
+
 
   // Helper function to fix the date format from the JSON file
   const convertDate = (dateObj) => {
