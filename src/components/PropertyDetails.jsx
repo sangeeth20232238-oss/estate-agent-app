@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { FaArrowLeft } from 'react-icons/fa';
+import propertyData from '../properties.json';
 
 const PropertyDetails = () => {
     // Get the ID from the URL (e.g. /property/prop1)
